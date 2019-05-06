@@ -158,7 +158,7 @@ class CountryCard extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w400),
-              )
+              ),
             ],
           )
         ],
