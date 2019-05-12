@@ -1,3 +1,4 @@
+import 'package:flight_list/Screen/FlightListScreen/FlightListScreen.dart';
 import 'package:flutter/material.dart';
 import '../../utils/clipper/CustomShapClipper.dart';
 import '../../utils/Colors/Colors.dart';
@@ -23,9 +24,9 @@ class _HomeTopState extends State<HomeTop> {
         ClipPath(
           clipper: CustomShapeClipper(),
           child: Container(
-            height: 350.0,
+            height: 400.0,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [fistColor, secColor])),
+                gradient: LinearGradient(colors: [fistColor, secColor,thirdColor])),
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -115,9 +116,14 @@ class _HomeTopState extends State<HomeTop> {
                             elevation: 2.0,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30.0)),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.black,
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => FlightListScreen()));
+                              },
+                              child: Icon(
+                                Icons.search,
+                                color: Colors.black,
+                              ),
                             ),
                           )),
                     ),
