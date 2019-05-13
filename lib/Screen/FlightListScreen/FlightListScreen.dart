@@ -3,6 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../utils/Colors/Colors.dart';
 
+class InheritedFlightList extends InheritedWidget {
+  final String toLocation, fromLocation;
+  InheritedFlightList({this.fromLocation, this.toLocation, Widget child})
+      : super(child: child);
+  @override
+  bool updateShouldNotify(InheritedWidget oldWidget) => true;
+
+  static InheritedFlightList of(BuildContext context) =>
+      context.inheritFromWidgetOfExactType(InheritedFlightList);
+}
+
 class FlightListScreen extends StatefulWidget {
   _FlightListScreenState createState() => _FlightListScreenState();
 }
@@ -82,7 +93,6 @@ class GradientAppbar extends StatelessWidget {
 class FligtListTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Stack(
       children: <Widget>[
         ClipPath(
@@ -116,7 +126,7 @@ class FligtListTop extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Songkhla (SK)",
+                            '${InheritedFlightList.of(context).fromLocation}',
                             style: TextStyle(fontSize: 17.0),
                           ),
                           Divider(
@@ -124,7 +134,7 @@ class FligtListTop extends StatelessWidget {
                             height: 20.0,
                           ),
                           Text(
-                            "Phuket (PK)",
+                            '${InheritedFlightList.of(context).toLocation}',
                             style: TextStyle(
                                 fontSize: 16.0, fontWeight: FontWeight.bold),
                           )
@@ -172,8 +182,8 @@ class FlightListBottom extends StatelessWidget {
             children: <Widget>[
               FlightListCard(),
               FlightListCard(),
-              FlightListCard()
-              ,FlightListCard(),
+              FlightListCard(),
+              FlightListCard(),
               FlightListCard(),
               FlightListCard()
             ],
