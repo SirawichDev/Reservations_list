@@ -10,7 +10,8 @@ class HomeTop extends StatefulWidget {
   _HomeTopState createState() => _HomeTopState();
 }
 
-List<String> location = ['Songkhla (SK)', 'Phuket (PK)'];
+List<String> locations = ['Songkhla (SK)', 'Phuket (PK)'];
+final _searchFieldController = TextEditingController(text: locations[1]);
 
 class _HomeTopState extends State<HomeTop> {
   var seletedIndex = 0;
@@ -26,11 +27,12 @@ class _HomeTopState extends State<HomeTop> {
           child: Container(
             height: 400.0,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [fistColor, secColor,thirdColor])),
+                gradient:
+                    LinearGradient(colors: [fistColor, secColor, thirdColor])),
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height:20.0,
+                  height: 20.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -51,7 +53,7 @@ class _HomeTopState extends State<HomeTop> {
                         },
                         child: Row(
                           children: <Widget>[
-                            Text(location[seletedIndex],
+                            Text(locations[seletedIndex],
                                 style: dropDownLabelStyle),
                             Icon(
                               Icons.keyboard_arrow_down,
@@ -63,14 +65,14 @@ class _HomeTopState extends State<HomeTop> {
                             <PopupMenuItem<int>>[
                               PopupMenuItem(
                                 child: Text(
-                                  location[0],
+                                  locations[0],
                                   style: dropDownStyle,
                                 ),
                                 value: 0,
                               ),
                               PopupMenuItem(
                                 child: Text(
-                                  location[1],
+                                  locations[1],
                                   style: dropDownStyle,
                                 ),
                                 value: 1,
@@ -86,7 +88,7 @@ class _HomeTopState extends State<HomeTop> {
                   ),
                 ),
                 SizedBox(
-                  height:10.0,
+                  height: 10.0,
                 ),
                 Text(
                   "where would \n you want to go?",
@@ -107,7 +109,7 @@ class _HomeTopState extends State<HomeTop> {
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                     child: TextField(
                       style: dropDownMenuStyle,
-                      controller: TextEditingController(text: location[0]),
+                      controller: _searchFieldController,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 26, vertical: 13.0),
@@ -117,8 +119,18 @@ class _HomeTopState extends State<HomeTop> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30.0)),
                             child: InkWell(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => FlightListScreen()));
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            InheritedFlightList(
+                                              fromLocation:
+                                                  locations[seletedIndex],
+                                              toLocation:
+                                                  _searchFieldController.text,
+                                              child: FlightListScreen(),
+                                            )));
                               },
                               child: Icon(
                                 Icons.search,
@@ -149,8 +161,7 @@ class _HomeTopState extends State<HomeTop> {
                       width: 30.0,
                     ),
                     InkWell(
-                      child:
-                          Choices(Icons.hotel, "Hotels", !isFlightSelected),
+                      child: Choices(Icons.hotel, "Hotels", !isFlightSelected),
                       onTap: () {
                         setState(() {
                           isFlightSelected = false;
