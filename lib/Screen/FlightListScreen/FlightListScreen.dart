@@ -5,8 +5,10 @@ import '../../utils/Colors/Colors.dart';
 
 class InheritedFlightList extends InheritedWidget {
   final String toLocation, fromLocation;
+
   InheritedFlightList({this.fromLocation, this.toLocation, Widget child})
       : super(child: child);
+
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
@@ -112,7 +114,7 @@ class FligtListTop extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15.0))),
               margin: EdgeInsets.symmetric(horizontal: 10.0),
-              elevation: 10.0,
+              elevation: 20.0,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 23.0),
                 child: Row(
@@ -201,12 +203,12 @@ class FlightListCard extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          margin: const EdgeInsets.only(right: 16.0),
+          margin: const EdgeInsets.only(right: 16.0,bottom: 10.0),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
-              border: Border.all(color: Colors.white)),
+              border: Border.all(color: Colors.white12)),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -247,9 +249,14 @@ class FlightListCard extends StatelessWidget {
           top: 20.0,
           right: 5.0,
           child: Container(
+            padding: EdgeInsets.all(3.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: Colors.pink),
             child: Text(
               "44%",
-              style: TextStyle(color: Colors.pink, fontWeight: FontWeight.w800),
+              style:
+                  TextStyle(fontSize: 14.0,color: Colors.white, fontWeight: FontWeight.w600),
             ),
           ),
         )
@@ -270,7 +277,7 @@ class FlightButtomCardIcon extends StatelessWidget {
     return RawChip(
       label: Text(
         label,
-        style: TextStyle(fontWeight: FontWeight.w700),
+        style: TextStyle(fontWeight: FontWeight.w500),
       ),
       labelStyle: TextStyle(color: Colors.black, fontSize: 14.0),
       backgroundColor: Colors.transparent,
