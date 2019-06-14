@@ -25,14 +25,15 @@ class _HomeTopState extends State<HomeTop> {
         ClipPath(
           clipper: CustomShapeClipper(),
           child: Container(
-            height: 400.0,
+            height: 320.0,
             decoration: BoxDecoration(
                 gradient:
                     LinearGradient(colors: [fistColor, secColor, thirdColor])),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 SizedBox(
-                  height: 20.0,
+                  height: 10.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -87,9 +88,6 @@ class _HomeTopState extends State<HomeTop> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 10.0,
-                ),
                 Text(
                   "where would \n you want to go?",
                   style: TextStyle(
@@ -100,7 +98,7 @@ class _HomeTopState extends State<HomeTop> {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 30.0,
+                  height:20.0,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 37.0),

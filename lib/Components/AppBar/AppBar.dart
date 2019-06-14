@@ -47,7 +47,6 @@ class AppBarBottom extends StatefulWidget {
 class _AppBarBottomState extends State<AppBarBottom> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return BottomNavigationBar(
       items: widget.bottomBarItems,
       type: BottomNavigationBarType.fixed,

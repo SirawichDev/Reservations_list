@@ -29,7 +29,7 @@ class _HomeBottomState extends State<HomeBottom> {
           height: 20.0,
         ),
         Container(
-          height: 230.0,
+          height: 200.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: countryCards,
@@ -65,7 +65,7 @@ class CountryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
             child: Stack(
               children: <Widget>[
                 Container(
@@ -117,11 +117,11 @@ class CountryCard extends StatelessWidget {
                       InkWell(
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 3.0),
+                              horizontal: 6.0, vertical: 2.0),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0))),
+                                  BorderRadius.all(Radius.circular(10.0))),
                           child: Text(discount,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
@@ -140,7 +140,7 @@ class CountryCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               SizedBox(
-                width: 10.0,
+                width: 5.0,
               ),
               Text(
                 '${formatCurrency.format(newPrice)}',
