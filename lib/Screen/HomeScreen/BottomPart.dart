@@ -29,7 +29,7 @@ class _HomeBottomState extends State<HomeBottom> {
           height: 20.0,
         ),
         Container(
-          height: 200.0,
+          height: 220.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: countryCards,
@@ -69,7 +69,7 @@ class CountryCard extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Container(
-                  height: 210.0,
+                  height: 190.0,
                   width: 160.0,
                   child: Image.asset(
                     imgPath,
